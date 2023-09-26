@@ -14,7 +14,7 @@ RedTrainer is a powerful Lua-based menu for RedM, designed to provide a feature-
 
 ## Contributing
 
-RedTrainer is an open-source project and welcomes contributions from the community. If you have ideas for new features, bug fixes, or improvements, feel free to submit a pull request. Together, we can make RedTrainer even better.
+RedTrainer is an open-source project and welcomes contributions from the community. If you have ideas for new features, bug fixes, or improvements, Fork than feel free to submit a pull request. Together, we can make RedTrainer even better.
 
 ## Support
 

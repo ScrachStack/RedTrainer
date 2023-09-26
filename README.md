@@ -1,4 +1,4 @@
-![RedTrainer](https://github.com/Zaps6000/RedTrainer/assets/122732007/6d0318bb-89f0-490a-bebf-3dd15dfc03f8)
+![image](https://github.com/Zaps6000/RedTrainer/assets/122732007/fea83d82-5059-4dd1-8ef1-c00069e950dd)
 
 # RedTrainer (WIP join discord for updates will most likey randomly break)
 

@@ -15,7 +15,6 @@ DONT EDIT BELOW THIS LINE UNLESS YOU KNOW WHAT YOUR DOING
 DONT EDIT BELOW THIS LINE UNLESS YOU KNOW WHAT YOUR DOING
 --]=====]
 
-
 LocalPlayer.state.godmode =
 
 lib.registerMenu({
@@ -84,6 +83,7 @@ lib.registerMenu({
         if not input then return end
         local weaponModel = input[1]
 
+        -- Check if the input weapon name matches any model in the array
         for _, weaponInfo in ipairs(weaponOptions) do
             if weaponModel == weaponInfo.label then
                 giveWeapon(weaponInfo.model)
@@ -91,7 +91,7 @@ lib.registerMenu({
             end
         end
 
-        print('Invalid - ', weaponModel)
+        print('Invalid weapon name:', weaponModel)
    end 
 end)
 
@@ -200,10 +200,25 @@ lib.registerMenu({
         end
 end)
 
-
+if Config.UseCommand then 
 RegisterCommand(Config.MenuCommand, function() -- Main Menu
     lib.showMenu('zaps-rd-main')
 end)
+else 
+ CreateThread(function()
+    while true do
+        Citizen.Wait(10)
+
+    if IsKeyBeingPressed(Config.KeyBinding) then
+    lib.showMenu('zaps-rd-main')
+    end
+end
+ end)
+end
+
+function IsKeyBeingPressed(key)
+    return IsControlJustPressed(0, key)
+end
 
 
 

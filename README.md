@@ -1,6 +1,6 @@
 ![image](https://github.com/Zaps6000/RedTrainer/assets/122732007/fea83d82-5059-4dd1-8ef1-c00069e950dd)
 
-# RedTrainer (WIP join discord for updates will most likey randomly break)
+# RedTrainer
 
 RedTrainer is a powerful Lua-based menu for RedM, designed to provide a feature-rich experience akin to vMenu in FiveM. With RedTrainer, you can enhance your gameplay, customize your RedM experience, and enjoy a wide range of in-game options and features. Whether you're a player looking to explore new possibilities or a developer seeking to expand its functionality, RedTrainer has you covered.
 

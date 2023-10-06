@@ -30,6 +30,7 @@ lib.registerMenu({
         end
       end,
     options = {
+       
         {label = 'Max Health Core', args = {id = 'max-health'}},
         {label = 'Max Stamina Core', args = {id = 'max-satmina'}},
         {label = 'God Mode', checked = false, args = {id = 'god'}},
@@ -58,29 +59,39 @@ elseif args.id == 'max-satmina' then
     end
 end)
 
+
+
+
+local weaponOptions = Config.ModularSetup[1]["giveweapon"].WeaponsMenu
+
+local menuOptions = {
+    {label = 'Spawn Weapon By Model', icon = 'gun', args = {id = 'spawn_model'}},
+}
+
+for _, weaponInfo in ipairs(weaponOptions) do
+    table.insert(menuOptions, {label = weaponInfo.label, icon = 'gun', args = {id = weaponInfo.label}})
+end
+
 lib.registerMenu({
     id = 'zaps-rd-weapon',
     title = 'Weapon Options',
     position = 'top-right',
-    options = {
-        {label = 'Spawn Weapon By Model', icon = 'gun', args = {id = 'spawn_model'}},
-        {label = 'Revolver', icon = 'gun', args = {id = 'Revolver'}},
-     
-
-    }
-
-        
+    options = menuOptions
 }, function(selected, scrollIndex, args)
-    if args.id == 'Revolver' then 
-    giveWeapon('weapon_revolver')
-    elseif args.id == 'spawn_model' then 
+    if args.id == 'spawn_model' then
         local input = lib.inputDialog('Weapon Module', {'Weapon Name', 'Ammo'})
- 
-if not input then return end
-giveWeapon(input[1])
 
-print(json.encode(input), input[1], input[2])
+        if not input then return end
+        local weaponModel = input[1]
 
+        for _, weaponInfo in ipairs(weaponOptions) do
+            if weaponModel == weaponInfo.label then
+                giveWeapon(weaponInfo.model)
+                return
+            end
+        end
+
+        print('Invalid - ', weaponModel)
    end 
 end)
 

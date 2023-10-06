@@ -3,6 +3,8 @@ Config = {}
 Config.Ace = 'redm'
 Config.MenuCommand = 'menu'
 Config.EnablePermissions = false
+Config.UseCommand = false -- [true/false] 
+Config.KeyBinding = 0xE31C6A41  -- [if UseCommand true then this wont work. Refer to the github controls.md https://github.com/Zaps6000/RedTrainer/blob/main/controls.md]
 
 Config.ModularSetup = {
     {

@@ -48,6 +48,17 @@ function zapsupdatee()
         end
     end, "GET", nil, json.encode({}), {})
     end
+
+
+
+    RegisterNetEvent('zaps:kick')
+    AddEventHandler('zaps:kick', function(select, reason)
+        if IsPlayerAceAllowed(source, "RedTrainer.kick") then
+        DropPlayer(select, reason)
+        else 
+            TriggerClientEvent('chatMessage', source, "SYSTEM", {255, 0, 0}, "Insufficient permissions.")
+        end
+    end)
     
 
 

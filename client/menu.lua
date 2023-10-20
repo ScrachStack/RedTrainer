@@ -427,7 +427,7 @@ end
         return 
     end
 
-    local CoreOverpowered = Citizen.InvokeNative(0x200373A8DF081F22, horse, 0)
+    local CoreOverpowered = Citizen.InvokeNative(0x200373A8DF081F22, horse, 0) -- IsAttributeCoreOverpowered
     if CoreOverpowered then
         return 
     end

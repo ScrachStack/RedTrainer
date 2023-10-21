@@ -68,7 +68,7 @@ local menuOptions = {
 }
 
 for _, weaponInfo in ipairs(weaponOptions) do
-    table.insert(menuOptions, {label = weaponInfo.label, icon = 'gun', args = {id = weaponInfo.label}})
+    table.insert(menuOptions, {label = weaponInfo.label, icon = 'gun', args = {id = weaponInfo.label, model = weaponInfo.model}})
 end
 
 lib.registerMenu({
@@ -82,19 +82,11 @@ lib.registerMenu({
 
         if not input then return end
         local weaponModel = input[1]
-
-        -- Check if the input weapon name matches any model in the array
-        for _, weaponInfo in ipairs(weaponOptions) do
-            if weaponModel == weaponInfo.label then
-                giveWeapon(weaponInfo.model)
-                return
-            end
-        end
-
-        print('Invalid weapon name:', weaponModel)
+            giveWeapon(weaponModel)
+    else 
+        giveWeapon(args.model)
    end 
 end)
-
 
 lib.registerMenu({
     id = 'zaps-rd-server',
@@ -321,29 +313,29 @@ function clearpedtask()
 end 
 
 function giveWeapon(weaponModel)
-    local playerPed = PlayerId()
+    local playerPed = PlayerPedId() 
     
     if playerPed ~= -1 then
-        local weaponHash = GetHashKey(weaponModel)
+        local weaponHash = joaat(weaponModel) 
 
-        if weaponHash == 0 then
+        if weaponHash == 0 then 
             lib.notify({
                 title = 'RedM | Trainer',
-
                 description = 'Invalid Weapon',
                 type = 'error'
             })
         else
-            GiveWeaponToPed(GetPlayerPed(-1), weaponHash, 999, false, false)
+            Citizen.InvokeNative(0x5E3BDDBCB83F3D84,  playerPed,  weaponHash,  999, true,  false, 0,  false,  0,  0, 0, false, 0.0, false) -- GiveWeaponToPed
+            
             lib.notify({
                 title = 'RedM | Trainer',
-
                 description = "You received a " .. weaponModel,
                 type = 'info'
             })
         end
     end
 end
+
 
 function clipboard()
     local ped = PlayerPedId()

@@ -62,6 +62,15 @@ function zapsupdatee()
     
 
 local bannedPlayers = {}
+local function removeExpiredBans()
+    local currentTime = os.time()
+    for i, bannedInfo in ipairs(bannedPlayers) do
+        if bannedInfo.expiry ~= "Never" and tonumber(bannedInfo.expiry) <= currentTime then
+            table.remove(bannedPlayers, i)
+            saveBannedPlayers()
+        end
+    end
+end
 
 local function loadBannedPlayers()
     local loadFile = LoadResourceFile(GetCurrentResourceName(), "./banned_players.json")
@@ -135,3 +144,9 @@ end)
 
 loadBannedPlayers()
 
+CreateThread(function()
+    while true do
+        Citizen.Wait(60000) 
+        removeExpiredBans()
+    end
+end)

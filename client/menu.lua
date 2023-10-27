@@ -236,12 +236,12 @@ end
 
 
 function maxhealthcore()
-    SetEntityHealth(PlayerPedId(), GetEntityMaxHealth(PlayerPedId()))
-    ClearPedBloodDamage(PlayerPedId())
+    SetEntityHealth(cache.ped or PlayerPedId(), GetEntityMaxHealth(cache.ped or PlayerPedId()))
+    ClearPedBloodDamage(cache.ped or PlayerPedId())
     RestorePlayerStamina(PlayerId(), 100.0)
-    Citizen.InvokeNative(0xC6258F41D86676E0, PlayerPedId(), 0, 100) -- SetAttributeCoreValue
-    Citizen.InvokeNative(0xC6258F41D86676E0, PlayerPedId(), 1, 100) 
-    Citizen.InvokeNative(0xC6258F41D86676E0, PlayerPedId(), 2, 100) 
+    Citizen.InvokeNative(0xC6258F41D86676E0, cache.ped or PlayerPedId(), 0, 100) -- SetAttributeCoreValue
+    Citizen.InvokeNative(0xC6258F41D86676E0, cache.ped or PlayerPedId(), 1, 100) 
+    Citizen.InvokeNative(0xC6258F41D86676E0, cache.ped or PlayerPedId(), 2, 100) 
 
   end
 
@@ -254,11 +254,11 @@ function superjump()
 
     CreateThread(function()
         while isSuperJumping do
-            SetPedMoveRateOverride(PlayerPedId(), 1.15)
+            SetPedMoveRateOverride( cache.ped or PlayerPedId(), 1.15)
             SetSuperJumpThisFrame(PlayerId())
             Wait(0)
         end
-        ResetPedMoveRateOverride(PlayerPedId())
+        ResetPedMoveRateOverride(cache.ped or PlayerPedId())
     end)
 end 
 
@@ -271,7 +271,7 @@ function tpcoords(coords)
     local x = coords[1]
     local y = coords[2]
     local z = coords[3]
-    local ped = PlayerPedId()
+    local ped = cache.ped or PlayerPedId()
 
     DoScreenFadeOut(500)
     while not IsScreenFadedOut() do Wait(0) end
@@ -286,7 +286,7 @@ end
 
 
 function repair()
-    local ped = PlayerPedId()
+    local ped = cache.ped or PlayerPedId()
     local veh = GetVehiclePedIsIn(ped, false)
     if veh and veh > 0 then
         SetVehicleUndriveable(veh, false)
@@ -309,11 +309,11 @@ function repair()
     end
 
 function clearpedtask()
-    ClearPedTasksImmediately(PlayerPedId())
+    ClearPedTasksImmediately(cache.ped or PlayerPedId())
 end 
 
 function giveWeapon(weaponModel)
-    local playerPed = PlayerPedId() 
+    local playerPed = cache.ped or PlayerPedId() 
     
     if playerPed ~= -1 then
         local weaponHash = joaat(weaponModel) 
@@ -338,7 +338,7 @@ end
 
 
 function clipboard()
-    local ped = PlayerPedId()
+    local ped = cache.ped or PlayerPedId()
     local curCoords = GetEntityCoords(ped)
     local currHeading = GetEntityHeading(ped)
     local stringCoords = ('%.4f, %.4f, %.4f, %.4f'):format(curCoords.x, curCoords.y, curCoords.z, currHeading)
@@ -353,7 +353,7 @@ end
 
 
 function hottieyourself()
-    Citizen.InvokeNative(0x42AC6401ABB8C7E5, PlayerPedId(), false, false)
+    Citizen.InvokeNative(0x42AC6401ABB8C7E5, cache.ped or PlayerPedId(), false, false)
 end
 
 
@@ -377,7 +377,7 @@ function HORSEORFANCYCOACHORNICEBOAT(model)
         return
     end
 
-    local playerPed = PlayerPedId()
+    local playerPed = cache.ped or PlayerPedId()
     local playerCoords = GetEntityCoords(playerPed)
     local playerHeading = GetEntityHeading(playerPed)
     local currentVeh = GetVehiclePedIsIn(playerPed, false)
@@ -413,7 +413,7 @@ function HORSEORFANCYCOACHORNICEBOAT(model)
 end
 
  function boostlittlehorsee()
-    local ped = PlayerPedId()
+    local ped = cache.ped or PlayerPedId()
     local horse = IsPedOnMount(ped) and GetMount(ped) or false
     if not horse then
         return 
@@ -436,7 +436,7 @@ end
 
 
  function handleTpNormally(x, y, z)
-    local ped = PlayerPedId()
+    local ped = cache.ped or PlayerPedId()
     local veh = GetVehiclePedIsIn(ped, false)
     local horse
         if IsPedOnMount(ped) then

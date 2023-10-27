@@ -1,4 +1,3 @@
--- Define a variable to hold the selected player's server ID
 local selectedPlayerServerId = nil
 
 local players = {}
@@ -48,9 +47,18 @@ local kickReason = input[1]
 if kickReason == '' then
     kickReason = 'No Kick Reason.'
 end
-            TriggerServerEvent('zaps:kick', selectedPlayerServerId, kickReason)
-        else
-
+        TriggerServerEvent('zaps:kick', selectedPlayerServerId, kickReason)
+        elseif args.action == 'ban' then
+        if selectedPlayerServerId then
+            local input = lib.inputDialog('Ban Panel', {'Reason for ban.', 'Expiry time (optional)'})
+            if not input then return end
+            local banReason = input[1]
+            local banExpiry = input[2] or 'Never'
+            if banReason == '' then
+                banReason = 'No Ban Reason.'
+            end
+            TriggerServerEvent('zaps:ban', selectedPlayerServerId, banReason, banExpiry)
+        end
         end
     end
 end)

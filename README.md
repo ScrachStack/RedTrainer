@@ -34,5 +34,5 @@ RedTrainer is released under the terms of the [GNU General Public License](LICEN
 ```
 add_principal identifier.steam:YOURACE group.admin
 add_ace group.admin RedTrainer.kick allow
-
+add_ace group.admin RedTrainer.ban allow
 

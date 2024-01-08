@@ -36,3 +36,6 @@ add_principal identifier.steam:YOURACE group.admin
 add_ace group.admin RedTrainer.kick allow
 add_ace group.admin RedTrainer.ban allow
 
+### Developer Shit 
+local RedTrainer = exports["RedTrainer"]:Core() -- fetch the object 
+using this you can use callbacks get player idetnfiers from the server side etc more feature soon

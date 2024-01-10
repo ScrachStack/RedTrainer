@@ -31,11 +31,13 @@ RedTrainer is released under the terms of the [GNU General Public License](LICEN
 ---
 
 ## Example for the Aces
-```
+```cfg
 add_principal identifier.steam:YOURACE group.admin
 add_ace group.admin RedTrainer.kick allow
 add_ace group.admin RedTrainer.ban allow
-
-### Developer Shit 
+```
+### Developer Shit
+```lua
 local RedTrainer = exports["RedTrainer"]:Core() -- fetch the object 
+```
 using this you can use callbacks get player idetnfiers from the server side etc more feature soon

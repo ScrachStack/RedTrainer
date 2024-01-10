@@ -65,11 +65,13 @@ local weaponOptions = Config.ModularSetup[1]["giveweapon"].WeaponsMenu
 
 local menuOptions = {
     {label = 'Spawn Weapon By Model', icon = 'gun', args = {id = 'spawn_model'}},
+    {label = 'Remove All Weapons', icon = 'gun', args = {id = 'remove_all'}},
 }
 
 for _, weaponInfo in ipairs(weaponOptions) do
     table.insert(menuOptions, {label = weaponInfo.label, icon = 'gun', args = {id = weaponInfo.label, model = weaponInfo.model}})
 end
+
 
 lib.registerMenu({
     id = 'zaps-rd-weapon',
@@ -81,11 +83,14 @@ lib.registerMenu({
         local input = lib.inputDialog('Weapon Module', {'Weapon Name', 'Ammo'})
 
         if not input then return end
+
         local weaponModel = input[1]
-            giveWeapon(weaponModel)
-    else 
+        giveWeapon(weaponModel)
+    elseif args.id == 'remove_all' then
+        RemoveAllPedWeapons(cache.ped, true, true)
+    else
         giveWeapon(args.model)
-   end 
+    end
 end)
 
 lib.registerMenu({
@@ -96,8 +101,6 @@ lib.registerMenu({
         {label = 'Copy Coords', icon = 'clipboard', args = {id = 'copy-coords'}},
         {label = 'ShowEntityModels', checked = false, icon = 'network-wired',  args = {id = 'ShowEntityModels'}},
         {label = 'Teleport To Waypoint',  icon = 'hat-wizard',  args = {id = 'teleportToWaypoint'}},
-
-
     }
 
         
@@ -175,7 +178,6 @@ lib.registerMenu({
 }, function(selected, scrollIndex, args)
       if args.id == 'd' then
         godemode()
-        print("DDD")
         elseif args.id == 'openselfoptions' then
             lib.showMenu('zaps-rd-player')
         elseif args.id == 'zaps-rd-server' then

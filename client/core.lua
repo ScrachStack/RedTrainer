@@ -1,5 +1,12 @@
 Red = {}
 
+Red.P = cache.ped
+Red.ServerIP = GetCurrentServerEndpoint()
+Red.Server = TriggerServerEvent
+Red.Even = TriggerEvent 
+Red.id = PlayerId()
+Red.C = RegisterCommand
+
 local nextRequestId = 0 
 local serverCallbacks = {}
 local clientCallbacks = {}
@@ -57,9 +64,33 @@ AddEventHandler('Red:triggerClientCallback', function(eventName, requestId, invo
 end)
 
 
+if Config.ModularSetup.EnableMiniMapRevealed then
+for i = 0, 25 do
+    Citizen.InvokeNative(0x4B8F743A4A6D2FF8, i)  -- REVEAL_MINIMAP_SEGMENT
+end
+end
+if Config.ModularSetup.EnablePVP then
+    NetworkSetFriendlyFireOption(true)
+end
 
+-- @param title (string) - The title of the notification. Defaults to 'RedTrainer' if not provided.
+-- @param desc (string) - The description of the notification. Defaults to 'Notification' if not provided.
+-- @param type (string) - The type of the notification. Defaults to 'info' if not provided or if it's not a valid type.
+Red.Notify = function(title, desc, type)
+    title = title or 'RedTrainer'
+    desc = desc or 'Default Notification'
+    
+    local validTypes = { 'success', 'info','error' }
+    type = (type and validTypes[type]) and type or 'info'
 
-  
+    lib.notify({
+        title = title,
+        description = desc,
+        type = type
+    })
+end
+-- EXAMPLE!! Red.Notify("RedTrainer | I CHEAT", "TEST", 'info')
+
 exports('Core', function()
 	return Red
 end)

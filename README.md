@@ -2,8 +2,10 @@
 https://streamable.com/xos73m
 # RedTrainer
 
-RedTrainer is a powerful Lua-based menu for RedM, designed to provide a feature-rich experience akin to vMenu in FiveM. With RedTrainer, you can enhance your gameplay, customize your RedM experience, and enjoy a wide range of in-game options and features. Whether you're a player looking to explore new possibilities or a developer seeking to expand its functionality, RedTrainer has you covered.
 [![Discord](https://img.shields.io/badge/Discord-Support-5865F2?style=flat&logo=discord&logoColor=white)](https://discord.gg/Uwg95JfwYT) 
+
+
+RedTrainer is a powerful Lua-based menu for RedM, designed to provide a feature-rich experience akin to vMenu in FiveM. With RedTrainer, you can enhance your gameplay, customize your RedM experience, and enjoy a wide range of in-game options and features. Whether you're a player looking to explore new possibilities or a developer seeking to expand its functionality, RedTrainer has you covered.
 
 ## Features
 

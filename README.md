@@ -18,7 +18,7 @@ RedTrainer is an open-source project and welcomes contributions from the communi
 
 ## Support
 
-For discussions, bug reports, or questions, join our community on [Discord](https://discord.gg/cfxdev). We're here to assist you and provide the best RedM modding experience.
+For discussions, bug reports, or questions, join our community on [Discord](https://discord.gg/Uwg95JfwYT). We're here to assist you and provide the best RedM modding experience.
 
 ## Getting Started
 

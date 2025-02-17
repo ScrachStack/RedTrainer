@@ -45,4 +45,4 @@ add_ace group.admin RedTrainer.ban allow
 ```lua
 local RedTrainer = exports["RedTrainer"]:Core() -- fetch the object 
 ```
-using this you can use callbacks get player idetnfiers from the server side etc more feature soon
+using this you can use callbacks get player identifiers from the server side etc more feature soon

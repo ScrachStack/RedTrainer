@@ -47,7 +47,7 @@ local kickReason = input[1]
 if kickReason == '' then
     kickReason = 'No Kick Reason.'
 end
-        TriggerServerEvent('zaps:kick', selectedPlayerServerId, kickReason)
+        TriggerServerEvent('scratch:kick', selectedPlayerServerId, kickReason)
         elseif args.action == 'ban' then
         if selectedPlayerServerId then
             local input = lib.inputDialog('Ban Panel', {'Reason for ban.', 'Expiry time (optional)'})
@@ -57,7 +57,7 @@ end
             if banReason == '' then
                 banReason = 'No Ban Reason.'
             end
-            TriggerServerEvent('zaps:ban', selectedPlayerServerId, banReason, banExpiry)
+            TriggerServerEvent('scratch:ban', selectedPlayerServerId, banReason, banExpiry)
         end
         end
     end

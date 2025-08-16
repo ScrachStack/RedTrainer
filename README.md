@@ -5,7 +5,7 @@ https://streamable.com/xos73m
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/T6T01APGOO)
 
 
-[![Discord](https://img.shields.io/badge/Discord-Support-5865F2?style=flat&logo=discord&logoColor=white)](https://discord.gg/tgrU8wgeHx) 
+[![Discord](https://img.shields.io/badge/Discord-Support-5865F2?style=flat&logo=discord&logoColor=white)](https://discord.gg/fivemdev) 
 
 RedTrainer is a powerful Lua-based menu for RedM, designed to provide a feature-rich experience akin to vMenu in FiveM. With RedTrainer, you can enhance your gameplay, customize your RedM experience, and enjoy a wide range of in-game options and features. Whether you're a player looking to explore new possibilities or a developer seeking to expand its functionality, RedTrainer has you covered.
 
